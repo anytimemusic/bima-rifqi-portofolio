@@ -1,0 +1,554 @@
+/* RESET DASAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Menggunakan font Poppins yang sudah ditautkan di HTML */
+    font-family: 'Poppins', sans-serif; 
+    color: white; /* Warna teks default putih */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- NAVBAR DAN HEADER --- */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 10; /* Pastikan navbar berada di atas konten */
+}
+
+.social-icons a {
+    /* Ini adalah kode fix untuk nama lengkap */
+    font-size: 1rem; 
+    margin-right: 10px; 
+    font-weight: 700;
+    
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* --- Tambahkan Kode Baru Ini --- */
+
+.social-icons a.hover {
+    background-color: #FF5733; /* Warna Merah/Oranye Penuh */
+    border-color: #FF5733;     
+    color: #ffffff;              /* Ubah warna teks menjadi gelap */
+}
+/* --- Tambahkan Kode Baru Ini --- */
+
+.social-icons a.active {
+    background-color: #FF5733; /* Warna Merah/Oranye Penuh */
+    border-color: #FF5733;     
+    color: #ffffff;              /* Ubah warna teks menjadi gelap */
+}
+
+.menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* --- HERO SECTION (BAGIAN UTAMA) --- */
+
+.hero-section {
+    /* Membuat section ini menutupi seluruh layar */
+    height: 100vh;
+    width: 100%;
+    
+    background-image: url('assets/images/bimarifqipratamapict.png');
+    background-repeat: no-repeat;
+    
+    /* GANTI INI: MENGATUR UKURAN FOTO SECARA SPESIFIK */
+    background-size: 55%; 
+    /* Coba 80% dulu. Jika masih terlalu besar, ganti ke 70% atau 60% */
+    
+    /* BACKGROUND-POSITION TETAP DIPERLUKAN UNTUK MENENGAHKAN */
+    background-position: 100%, 70%; 
+    /* Menggunakan 'center bottom' untuk memastikan foto berada di dasar layar */
+
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    padding-left: 100px; 
+}
+
+/* OVERLAY WARNA (untuk efek Maria Amelia) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Gradien Oranye-Merah. Ganti warna/transparansi jika ingin nuansa lain */
+    background: linear-gradient(
+        135deg, 
+        #7c0000, /* Oranye Transparan */
+        rgb(0, 0, 0)    /* Merah Transparan */
+    );
+    mix-blend-mode: multiply; /* Efek blending yang membuat warna kontras */
+}
+
+.content-container {
+    position: relative;
+    z-index: 5; /* Di atas overlay */
+    width: 40%;
+    min-width: 300px; 
+}
+
+.main-title {
+    font-size: 5.5rem; 
+    font-weight: 900; /* Sangat tebal */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* TOMBOL CTA (Call to Action) */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid white; /* Garis tepi putih */
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* --- RESPONSIVENESS (Ponsel) --- */
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 20px;
+        /* Posisikan konten di bawah layar di ponsel */
+        align-items: flex-end; 
+    }
+
+    .content-container {
+        width: 100%;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+    
+    .navbar {
+        padding: 20px;
+    }
+}
+/* --- ABOUT ME SECTION STYLING --- */
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px;
+    min-height: 100vh; 
+    background: linear-gradient(
+        200deg, 
+        #420d00, /* Oranye Transparan */
+        rgb(0, 0, 0)    /* Merah Transparan */
+    );
+    color: #f0f0f0;
+}
+
+.profile-photo img {
+    max-width: 750px;
+    height: auto;
+    position: 10px;
+}
+
+.bio-text {
+    width: 45%;
+    line-height: 1.6;
+}
+
+.bio-text h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff; /* Warna aksen yang mirip dengan hero section */
+}
+
+.bio-text h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.bio-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.bio-text ul li {
+    background: #470000;
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+/* Responsiveness untuk About Page */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        padding: 50px 20px;
+        min-height: 100vh;
+        text-align: center;
+    }
+
+    .bio-text {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .profile-photo {
+        order: -1; 
+        margin-bottom: 30px;
+    }
+
+    .profile-photo img {
+        max-width: 80%;
+    }
+}
+/* --- CASE STUDY STYLING --- */
+
+.case-study {
+    background-color: #111;
+    color: #f0f0f0;
+    padding: 100px 10%;
+    max-width: 1200px;
+    margin: 0 auto; /* Tengah */
+}
+
+.cs-header h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #ff0000; 
+    text-align: center;
+}
+
+.cs-tags {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.cs-banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.cs-section {
+    padding: 30px 0;
+    border-top: 1px solid #333;
+    line-height: 1.7;
+}
+
+.cs-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.cs-section h3 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+.cs-section p {
+    margin-bottom: 15px;
+}
+
+/* Responsiveness untuk Studi Kasus */
+@media (max-width: 768px) {
+    .case-study {
+        padding: 50px 5%;
+    }
+    .cs-header h1 {
+        font-size: 2.5rem;
+    }
+}
+/* --- WORK GALLERY STYLING --- */
+
+.work-header {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+.work-header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.work-header p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.work-gallery {
+    background-color: #111;
+    padding: 50px 10%;
+    display: grid;
+    /* Membuat layout grid 2 kolom di desktop */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px;
+}
+
+.project-card {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Efek melayang saat dihover */
+}
+
+.project-card a {
+    display: block;
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 20px;
+    color: white;
+}
+
+.card-info h3 {
+    margin-bottom: 5px;
+    font-size: 1.7rem;
+    color: #ff0080; /* Aksen warna */
+}
+
+.card-info .tag {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.card-info span {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Responsiveness untuk Galeri */
+@media (max-width: 768px) {
+    .work-gallery {
+        grid-template-columns: 1fr; /* 1 kolom di ponsel */
+        padding: 20px 5%;
+    }
+
+    .work-header h1 {
+        font-size: 2.5rem;
+    }
+}
+/* --- SKILL BAR DIAGRAM STYLING --- */
+
+.skills-container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 650px;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #fff;
+    display: block; 
+}
+
+.skill-bar {
+    background-color: #3d0000; /* Warna dasar bar (Abu-abu gelap) */
+    height: 7px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    background-color: #FF5733; /* Warna Aksen Merah/Oranye */
+    height: 100%;
+    width: 0; 
+    transition: width 1.5s ease-out; /* Untuk animasi pengisian */
+}
+
+/* Tambahkan ini agar bar langsung terisi (tanpa JavaScript) */
+.skill-level[data-level="89%"] { width: 89%; }
+.skill-level[data-level="63%"] { width: 63%; }
+.skill-level[data-level="45%"] { width: 45%; }
+.skill-level[data-level="70%"] { width: 70%; }
+.skill-level[data-level="82%"] { width: 82%; }
+.skill-level[data-level="45%"] { width: 45%; }
+.skill-level[data-level="70%"] { width: 70%; }
+.skill-level[data-level="50%"] { width: 50%; }
+.skill-level[data-level="95%"] { width: 95%; }
+/* Sesuaikan persentase ini untuk setiap bar Anda */
+/* --- PAGE TRANSITION ANIMATION (Diperbaiki) --- */
+
+/* 1. Definisikan Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Hanya fokus pada tidak terlihat menjadi terlihat */
+    }
+    to {
+        opacity: 1; 
+    }
+}
+
+/* 2. Terapkan Animasi ke Kelas Konten */
+.fade-in-content {
+    /* Hapus transform: translateY() dari sini */
+    opacity: 0; 
+    
+    /* Terapkan Animasi */
+    animation: fadeIn 0.8s ease-out forwards; 
+    /* 0.8s: Durasi animasi */
+    /* forwards: Memastikan elemen tetap di posisi akhir animasi */
+}
+/* --- ANIMASI TEKS PER BARIS (FADE UP) --- */
+
+/* 1. Definisikan Keyframes */
+@keyframes textFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Mulai 20px di bawah */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Berakhir di posisi normal */
+    }
+}
+
+/* 2. Sembunyikan dan Posisikan Awal */
+.animate-text {
+    opacity: 0; 
+    transform: translateY(20px); 
+}
+
+/* 3. Terapkan Animasi untuk Judul (h1) */
+.main-title.animate-text {
+    /* Memicu animasi textFadeUp, durasi 1s, delay 0.5s (setelah halaman fade in), dan tetap di posisi akhir */
+    animation: textFadeUp 1s ease-out 0.5s forwards; 
+}
+
+/* 4. Terapkan Animasi untuk Deskripsi (p) dengan Delay Tambahan */
+.description.animate-text {
+    /* Delay sedikit lebih lama agar muncul setelah judul */
+    animation: textFadeUp 1s ease-out 1s forwards; 
+}
+/* --- ANIMASI TOMBOL CTA HOME --- */
+
+.cta-button.animate-text {
+    /* Memicu animasi textFadeUp, durasi 1s, delay 1.5s (muncul paling akhir) */
+    animation: textFadeUp 1s ease-out 1.5s forwards; 
+    
+    /* Tombol harus memiliki margin top agar tidak menempel ke deskripsi */
+    margin-top: 25px; 
+    display: inline-block; /* Agar properti margin-top bekerja */
+}
+/* --- ANIMASI TEKS BERURUTAN PADA HALAMAN ABOUT (FIXED & CLEAN) --- */
+
+/* Reset untuk semua elemen yang akan dianimasikan di ABOUT */
+.bio-text .animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Mengatur delay yang meningkat untuk setiap bagian */
+
+/* 1. Judul H2 ("Tentang Saya") */
+.bio-text h2.animate-text {
+    animation: textFadeUp 0.8s ease-out 0.4s forwards;
+}
+
+/* 2. Paragraf Deskripsi (P) */
+.bio-text p.animate-text { 
+    animation: textFadeUp 0.8s ease-out 0.6s forwards;
+}
+
+/* 3. Keahlian (Skills) - H3 & UL */
+.bio-text h3.animate-text:nth-of-type(1),
+.bio-text ul.animate-text:nth-of-type(1) {
+    animation: textFadeUp 0.8s ease-out 0.8s forwards;
+}
+
+/* 4. Riwayat Pendidikan - H3 & UL */
+.bio-text h3.animate-text:nth-of-type(2),
+.bio-text ul.animate-text:nth-of-type(2) { 
+    animation: textFadeUp 0.8s ease-out 1.1s forwards;
+}
+
+/* 5. Pengalaman - H3 & UL */
+.bio-text h3.animate-text:nth-of-type(3),
+.bio-text ul.animate-text:nth-of-type(3) { 
+    animation: textFadeUp 0.8s ease-out 1.4s forwards;
+}
+
+/* 6. Tingkat Penguasaan Software - H3 & Skills Container */
+.bio-text h3.animate-text:nth-of-type(4),
+.bio-text .skills-container.animate-text { 
+    animation: textFadeUp 0.8s ease-out 1.7s forwards;
+}
+
+/* 7. Tombol Unduh CV */
+.bio-text .cta-button.animate-text {
+    animation: textFadeUp 0.8s ease-out 2.0s forwards;
+    margin-top: 30px; 
+    display: inline-block;
+}
